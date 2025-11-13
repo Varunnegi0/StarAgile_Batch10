@@ -1,0 +1,270 @@
+Module: Linux Fundamentals | Date: 13-11-2025 | Day 01
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Modules;
+	1. Linux Fundamentals		- 3 days
+	2. DevOps Overview			- 2 days
+	3. DevOps on Cloud (AWS)	- 2 days
+	4. Git and GitHub			- 5 days
+	5. Build tool (Maven)			- 1 day
+
+Notes: https://github.com/KastroVKiran/StarAgile_Batch10.git
+
+AWS***
+Azure**
+GCP
+
+Module: Linux Fundamentals
+
+How Linux is helpful for DevOps Engineers (Software Engineers)?
+	- Windows OS is not recommended to work in real-time, because it has some security concerns
+
+Linux is an OS
+
+=> What is an OS?
+	- OS is a software which is used to interact with the machine (Laptop/Mobile/VM/Physical Server)
+	- It acts as a mediator between the user and the machine
+	- OS is mandatory to use any device
+	- It provides an environment to run applications
+
+=> Types of OS
+	- Windows, MacOS, Andriod, Linux, Ubuntu...
+
+=> Why software engineers prefer working with Linux OS?
+Windows Vs Linux
+
+Windows is premium
+Linux is free and open source
+
+Window OS is single user based OS
+Linux is multi user based OS
+
+Windows OS doesn't have better security features
+Linux OS is fully safe and secure
+
+Windows OS is recommended for personal use
+Linux OS is for professional use
+
+Windows OS is developed and owned by Microsoft Organization
+Linux OS is developed by Linus Torvalds
+
+Windows OS is GUI (Graphic User Interface) based
+Linux OS is CLI (Command Line Interface) based
+
+=> Linux Distributions
+Biryani - Hyderabad Biryani
+
+Bnglr - Hyd biryani
+Chennai - Hyd biryani
+Pune - Hyd biryani
+
+A Linux distribution is an OS that is built on top of original Linux kernel
+Different distributions are tailored for various use cases such as desktops, servers, embedded systems...
+In AWS Cloud, most of these distributions are available as AMI (Amazon Machine Image)
+
+1. RPM based (RedHat Package Manager)
+	- RedHat
+	- CentOS
+	- Amazon Linux 2023
+
+2. Debian
+	- Suse
+	- Ubuntu
+
+=> Linux Architecture
+Shell
+Kernel
+Hardware Components
+
+=> Launching EC2 instance and connecting with it;
+	AWS ----> EC2 ----> AMI: Amazon Linux 2023, Keypair: , Network: Default VPC, SG: New SG, EBS: 30 GB ----> Launch the instance
+
+To connect with the instance, we will use MobaXTerm
+
+Username for Linux AMIs ----> ec2-user
+Username for Ubuntu AMIs ----> ubuntu
+
+=> Linux Commands - Part 1
+
+To see the present month
+cal (or) cal -1
+
+To see the calendar of a specific year
+cal <YearName>
+
+To see the calendar of a specific month in a specific year
+cal <MonthName> <YearName>
+
+To see the present month, previous month and next month
+cal -3
+
+To see the date, day, month, year and time
+date
+
+Note: All servers in cloud will follow UTC time zone
+UTC - Universal Coordinated Timezone
+
+To clear the screen
+clear (or) control + l
+
+To see which flavor and OS is being used
+cat /etc/os-release
+
+To see the current working location
+pwd (Present Working Directory)'
+
+To know the information about a command
+man <CommandName>
+
+To know in which path the commands are available
+which <CommandName>
+
+Linux Directory Structure;
+cd / ----> ls ----> You will see the default directory structure
+bin  boot  dev  etc  home  lib  lib64  local  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var
+
+To work with calculator
+bc
+To come out of the calculator ----> control + c
+
+To install calculator ----> yum install bc -y
+
+To see which user is using the OS
+whoami
+
+Types of users;
+	1. ec2-user	----> limited permissions (you cannot install any softwares/packages)
+	2. root		----> full permissions
+
+Note: We can create custom users also
+
+How to switch to root user?
+sudo su (or) sudo -i
+
+To logout from the root user
+exit (or) control + d
+
+Without switching to the root user, if we want to install any packages, we will add "sudo" in the beginning of the command. Which means, only for that command we are giving root user permissions
+
+If you see $ symbol at the end of a line, it represents you are normal user
+If you see # symbol at the end of a line, it represents you are root user
+
+If you use "sudo -i" to switch to root user, we will be there in "/root" path
+If you use "sudo su" to switch to root user, we will be there in "/home/ec2-user" path
+
+The home location, when we connect to the ec2 instance is "/home/ec2-user"
+
+To see from how long the VM is running
+uptime
+
+To see the history of commands executed
+history
+
+Full form of sudo ----> super user do
+
+=> Creation and working with directories
+In Linux everything is represented as a file or a directory (folder)
+
+mkdir <DirectoryName>
+
+To see the list of files and directories available in the current location
+ls (list) or ls -l (long list) or ll (long list)
+
+"ls" will only show the list of files and directories
+"ls -l" or "ll" will show the metadata (information) of the files/directories
+
+To go inside a directory
+cd <DirName>
+
+To move one step/directory backward
+cd ..
+
+To move multiple directories backward
+cd ../... ---> two jumps backward
+cd ../../.. ----> three jumps backwards
+
+To delete an empty directory
+rmdir <DirName>
+
+To delete a directory and its subdirectories/files (non-empty directories)
+rm -rf <DirName>
+
+r - recursively
+f - forcefully
+
+While working with switching from one directory to another directory, we have two things;
+	1. Absolute path	- it means we should give the complete path in a single command (Ex: cd /home/ec2-user/kastro)
+	2. Relative path	- it means we need to go inside one specific directory (Ex: cd kastro, cd kiran, cd kk, cd Linux)
+
+To see the list of files and directories in alphabetical order
+ls (or) ll (or) ls -l
+
+To see the list of files and directories in reverse alphabetical order
+ls -lr
+
+To display the latest files on top
+ls -lt
+
+To display the old files on latest
+ls -ltr
+
+To see the hidden files/directories
+ls -al (or) ls -a
+
+To create nested directories
+mkdir -p parent/child1/child2/child3
+
+To create multiple directories at a time
+mkdir folder1 folder2 folder3 folder4
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
