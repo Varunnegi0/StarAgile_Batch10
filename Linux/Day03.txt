@@ -1,0 +1,190 @@
+Module: Linux Fundamentals | Date: 17-11-2025 | Day 03
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+==> File permissions using numbers;
+0 - no permissions
+1 - execute
+2 - write
+3 - 2+1 --- write+execute
+4 - read
+5 - 4+1 --- read + execute
+6 - 4+2 --- read + write
+7 - 6+1 --- read + write + execute
+
+ugo + x
+111
+
+ugo + w
+222
+
+u+r g+rx o+rw
+456
+
+u-rwx g-rwx o+rwx
+007 (or) 7
+
+==> User management
+ubuntu (or) ec2-user
+root
+
+To see the list of users available
+cat /etc/passwd
+
+To create users
+sudo useradd <username>
+
+To switch to the custom user
+su kastro
+
+To rename the user
+usermod -l kastro-devops kastro
+
+To see user got created or not
+id kastro-devops
+
+To see the list of groups
+cat /etc/group
+
+To create a group
+sudo groupadd devops-team
+
+To add an user to a group
+sudo usermod -aG devops-team kastro-devops
+
+To remove the user from a group
+sudo gpasswd -d kiran devops-team
+
+To see the list of users available in a group
+sudo lid -g devops-team
+
+To delete a group 
+sudo groupdel devops-team
+
+To rename a group
+sudo groupmod -n kastro-devops-group kastro
+
+==> Understanding sudoers file
+Using this file we can control which user can run what command(s)
+
+To print the data available in sudoers file
+ sudo cat /etc/sudoers
+
+To open/edit the sudoers file
+sudo visudo
+
+==> Modifying the owners and group for a file/directory
+CHOWN Command
+
+To change the ownership of a file
+sudo chown kiran linxux.txt
+
+To change group of a file
+sudo chown :kiran linxux.txt
+
+==> Package managers in Linux
+package means a software
+	- java, python, git, maven...
+
+package managers are used to manage software packages in Linux machines
+Amazon Linux ----> yum
+Ubuntu			----> apt
+
+To know the installation path of a software
+whereis maven
+
+==> SYSTEMCTL
+systemctl is used to manage services in Linux machines
+using systemctl we can perform below actions;
+	1. start a service
+	2. stop a service
+	3. restart a service
+	4. enable a service
+	5. reload a service
+
+==> HOSTNAME
+hostnamectl set-hostname kastro-machine
+sudo -i
+
+==> NETWORKING COMMANDS
+ping - to check internet connectivity
+ping www.google.com
+
+wget - it is used to download the files from internet
+
+curl - it is used to send http request to the url
+
+ifconfig - to get the IP address of the VM
+
+
+==> Transferring the files from VM to Physical Machine (Laptop) OR vice-versa
+WINSCP - download and install
+EC2 Instance with ppk file
+
+
+==> Working with VI advanced commands
+Note: All the below commands should be executed when you are in read mode of the file
+shift+a
+
+shift+i
+
+shift+o
+
+shift+g
+
+:set number
+
+:<LineNumber>
+
+yy
+
+p
+
+dd
+
+u
+
+control + r
+
+/word-name
+
+:%d
+
+To see the list of services installed
+ sudo systemctl list-units --type=service --all
+
+To see whether a particular service is installed or not
+sudo systemctl list-units --type=service --all | grep nginx
+
+To see the disc file system
+df -h
+
+To see the size of directories/files
+ls -ltr
+
+To see the memory information
+free -h	
+
+To see whether a software is installed or not
+rpm -qa | grep git
+
+To see the list of packages/softwares
+yum list available
+dnf list available
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
