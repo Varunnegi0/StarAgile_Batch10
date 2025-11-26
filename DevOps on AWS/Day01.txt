@@ -1,0 +1,136 @@
+Module 4: DevOps on Cloud (AWS)
+
+DevOps Tools;
+Repository tools				- Git and GitHub 
+Build tools					- Maven
+Artifact repository tools		- Nexus
+Code quality analysis tools	- SonarQube 
+Webservers					- Tomcat and Nexus
+CI & CD tools				- Jenkins
+Containerization tool			- Docker
+Orchestration tool			- Kubernetes
+Configuration management	- Ansible
+Infr. auto. tool				- Terraform
+Monitoring tools				- Prometheus & Grafana
+
+All the above tools are opensource and available for free
+To work with all of the above tools (except GitHub) we need Virtual Machines/EC2 Instances
+
+Launch EC2 Instance	 ------> Install required tool(s) ------> Configuration of the specific tool(s) ------> Start working with the tool
+
+AWS Code Suite Services/Developer Tools;
+AWS Code Suite is a collection of fully managed DevOps services that help teams build, test, and deploy software projects continuously in the cloud
+The code suite services are serverless services
+
+List of AWS Code Suite Services;
+1. AWS Code Commit	- Git and GitHub 
+2. AWS Code Build		- Maven
+3. AWS Code Deploy		- Deployment Automation
+4. AWS Code Pipeline	- Jenkins
+5. AWS Code Artifact	- Nexus
+6. Cloud Formation		- Terraform
+7. AWS Code Guru		- SonarQube 
+
+All the above services are specific to AWS Cloud ONLYYYY
+
+1. AWS Code Commit
+A fully managed, secure and highly scalable git-based source control service
+
+2. AWS Code Build
+A fully managed build service that compiles source code, run unit tests, and produces artifacts
+
+.java	----> Human readable -----> Binary 
+
+3. AWS Code Deploy	
+A deployment service that automates code deployment to various compute platforms (EC2/On-premise/Lambda function/ECS...)
+
+4. AWS Code Pipeline
+A fully managed CI&CD service
+Automates end-to-end pipelines for the deployment of applications in to various environments
+
+Code is in GitHub repo -----> Build the code -----> Test the code ----> Deploy the code
+
+5. AWS Code Artifact
+A fully managed artifact repo for storing the artifacts
+
+V1
+V2 --- roll back 
+V3 --- some bugs
+
+6. Cloud Formation
+It is a fully managed service to automate the infrastructure creation
+Here we will write the cloud formation stacks
+
+7. AWS Code Guru
+An AI-powered code reviewer and application performance analyzer service
+	- AWS CodeGuru Reviewer	- for static code analysis
+	- AWS CodeGuru Profiler		- for application performance optimization
+
+
+Project 1: Automate the App Deployment to S3 Bucket using Code Pipeline - Get the code from GitHub Repo - CloudFront and WAF
+
+															zip							Extract
+Developer	-----> GitHub Repo	------> AWS Code Build		------> AWS Code Deploy		-----> S3 Bucket		-----> Static Web Hosting ----> AWS Code Pipeline
+
+Repo URL: https://github.com/KastroVKiran/ECR-ECS-Project.git
+
+Add below policy ----> 
+
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": "*",
+      "Action": "s3:GetObject",
+      "Resource": "<BucketARN>/*"
+    }
+  ]
+}
+
+Change the ARN in above Policy
+
+
+Role Name: 
+
+
+buildspec.yml
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - echo "No installation needed for static HTML"
+
+  pre_build:
+    commands:
+      - echo "Preparing build..."
+
+  build:
+    commands:
+      - echo "Building static HTML site"
+      - mkdir -p output
+      # Copy all files to output directory
+      - cp -r * output/ || true
+      # Remove buildspec from artifacts
+      - rm -f output/buildspec.yml
+
+  post_build:
+    commands:
+      - echo "Build complete - $(ls -la output/)" 
+ 
+      
+artifacts:
+  files:
+    - '**/*'
+  base-directory: output
+  discard-paths: no
+
+
+Change to be made for CloudFront Removing the Caches
+ → Goto buildspec.yml file, add the below lines under the "Post build" command block as shown below
+post_build:
+  commands:
+    - echo "Build complete - $(ls -la output/)"
+    - echo "Invalidating Cloudfront cache..."
+    - aws cloudfront create-invalidation --distribution-id <DistributionIDfromCloudFront> --paths "/*"  
