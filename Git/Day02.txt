@@ -1,0 +1,75 @@
+GIT SQUASH
+Squash means combining multiple commits in to a single commit
+
+Paint a wall;
+primer --- commit1
+first coat --- commit2
+second coat --- commit3
+
+GIT CHECKOUT
+To switch from old version of the file to latest version of file or vice-versa
+
+Scenario 1: switching from one version to another version
+
+f6c1bf6 (HEAD -> master) added version3		----> version3, version2, version1
+369c960 added version2					----> version2, version1
+b3dbbc7 added version1					----> version1
+
+Scenario 2: Recovering a deleted file (when it is not committed)
+git rm
+
+4eb6ba3 (HEAD -> master) test file created
+f6c1bf6 added version3
+369c960 added version2
+b3dbbc7 added version1
+
+GIT RESTORE
+Scenario 1: how to unstage a staged file (but not committed)
+git reset kastro.txt
+git restore --staged kastro.txt
+
+Scenario 2: how to uncommit a committed file
+git update-ref -d HEAD
+
+Scenario 3: Uncommitting a particular commit
+
+GIT STASH
+Manager ----> Task 1: Create python file and add code in the file (10.00 AM) --------------------------------- Working..........
+			Task 2: Create a new text file, add, commit (10.30 AM) --- This is a high priority task
+
+When the tasks are partially completed, we can store the partially completed tasks in a temporary location by using GIT STASH
+
+Note: Atleast 1 commit should be there to work with git stash command
+
+Recovering a deleted file;
+
+Scenario 1: deleted but not staged
+ git restore hello.txt
+
+Scenario 2: deleted and staged but not committed
+git restore --staged hello.txt
+git restore hello.txt
+
+Scenario 3: deleted and committed
+git restore --source=70067ba -- hello.txt
+
+Scenario 4: if you don't know the file name
+git log --diff-filter=D --summary
+git checkout 70067ba -- hello.txt
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

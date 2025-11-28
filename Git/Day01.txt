@@ -1,0 +1,54 @@
+Git download link;
+https://git-scm.com/install/windows
+
+Why do we need to configure git?
+To track the changes made by the team members
+
+What are the configuration levels in git?
+System
+Global*
+Local
+
+Configuration of git
+We have to configure email id and name
+git config --global user.name "Kastro Kiran V"
+git config user.name
+git config --global user.email "learnwithkastro@gmail.com"
+git config user.email
+git config --list
+
+All git commands starts with “git”
+All of the git commands should run inside a git repository 
+
+Working with git commands;
+touch kastro.txt
+git status
+git add kastro.txt
+git status
+git commit -m "created empty file" kastro.txt
+
+To see the commit history 
+git log
+git log --oneline
+git log --pretty=oneline
+git log --pretty=format:"%h-%an, %ar:%s"
+git log -2
+git log --oneline -2
+git show 8040730
+git log -p -2
+git log --stat
+git shortlog
+git blame kastro.txt
+
+Changing the commit messages;
+git commit --amend -m "2nd line created"
+git reflog
+git reset --hard HEAD@{1}
+
+
+
+
+
+
+
+
