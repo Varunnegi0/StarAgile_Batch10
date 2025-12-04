@@ -1,6 +1,7 @@
 Module: Linux Fundamentals | Date: 13-11-2025 | Day 01
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 This is Kastro's file
+This is Surya's file
 Modules;
 	1. Linux Fundamentals		- 3 days
 	2. DevOps Overview			- 2 days
@@ -216,6 +217,7 @@ mkdir -p parent/child1/child2/child3
 
 To create multiple directories at a time
 mkdir folder1 folder2 folder3 folder4
+
 
 
 
