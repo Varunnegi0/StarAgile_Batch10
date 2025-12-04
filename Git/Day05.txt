@@ -1,0 +1,46 @@
+Git & GitHub - Day 05
+=========================
+GIT FETCH
+
+git fetch is a command that downloads commits, files and references from a remote repo into the local repo without modifying the working directory
+
+CHERRY PICK
+To pick a specific file from one branch to another
+
+COLLABORATORS IN GITHUB
+
+Creating a GitHub Profile
+
+Change repository visibility
+Public ----> Private
+Private ----> Public
+
+Transfer ownership
+
+
+After Jenkins;
+SonarQube	- https://youtu.be/ScdedztTaAU?si=a7Irwmo-XNkVBNqO
+Nexus		- https://youtu.be/opJAfDOCZuI?si=uFCF_9sjY8X5Agp3
+
+During Docker
+https://youtu.be/KHxfsqO16YU?si=DayWFAIFYK5eAqsT
+https://youtu.be/F1uTlZ5nu4A?si=emf6Eorqheou-Xuz
+https://youtu.be/0F9QVFPabyo?si=-eOCp8R3wXKpvb9_
+https://youtu.be/b3lKRtF_LME?si=yBX2Ns268ksQW7mo
+
+After Docker
+https://youtu.be/x55z7rk0NAU?si=3SVE9x1vhciK6ZVl
+https://youtu.be/BScNFDBdE7M?si=Z8bpV_V5_WPfYzEz
+
+After Kubernetes
+https://youtu.be/l-5JQcI_CH0?si=UQxh4GqIqvWIfpbK
+https://youtu.be/3fhvnsNY5fc?si=pdb-xHjd8CxPV9Wf
+https://youtu.be/hBGVwa8MY4A?si=XPPl8bok0hm4DCeu
+https://youtu.be/GyoI6-I68aQ?si=CgE5kL1P_nuut19P
+
+
+After Terraform
+https://youtu.be/DV79JyFbQE8?si=JXkpRkCsJwsyiW7j
+
+
+
